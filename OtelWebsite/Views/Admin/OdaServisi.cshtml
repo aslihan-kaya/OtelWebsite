@@ -1,0 +1,40 @@
+﻿@model IEnumerable<OtelWebsite.Models.Servisler>
+
+@{
+    ViewBag.Title = "OdaServisi";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>OdaServisi</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServisAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServisUcret)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServisAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServisUcret)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ServisNo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ServisNo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ServisNo })
+        </td>
+    </tr>
+}
+
+</table>

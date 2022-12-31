@@ -1,0 +1,51 @@
+﻿@model IEnumerable<OtelWebsite.Models.Odalar>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Oda Bilgileri</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Yeni")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OdaFiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YatakSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OdaTuru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServisNo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OdaFiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YatakSayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OdaTuru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServisNo)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Duzenle", new { id = item.OdaNo }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Sil", "Sil", new { id = item.OdaNo }, new { @class = "btn btn-success" })
+        </td>
+    </tr>
+}
+
+</table>

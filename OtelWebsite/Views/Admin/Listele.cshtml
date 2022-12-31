@@ -1,0 +1,39 @@
+﻿@model IEnumerable<OtelWebsite.Models.Admin>
+
+@{
+    ViewBag.Title = "Listele";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Listele</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Yeni",null, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KullaniciAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sifre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KullaniciAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sifre)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Duzenle", new { id = item.AdminNo }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Sil", "Sil", new { id = item.AdminNo }, new { @class = "btn btn-success" })
+        </td>
+    </tr>
+}
+
+</table>

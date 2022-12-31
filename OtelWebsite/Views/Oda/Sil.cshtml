@@ -1,0 +1,57 @@
+﻿@model OtelWebsite.Models.Odalar
+
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sil</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Odalar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OdaFiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdaFiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YatakSayisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YatakSayisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OdaTuru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdaTuru)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Servisler.ServisAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Servisler.ServisAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
